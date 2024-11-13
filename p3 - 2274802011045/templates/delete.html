@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='delete.css') }}">
+    <title>Delete Book</title>
+</head>
+<body>
+    <h2>Xóa Sách</h2>
+    <p>Bạn có chắc chắn muốn xóa sách "{{ book[1] }}"?</p>
+    <form method="post">
+        <button type="submit">Có, tôi muốn xóa</button>
+    </form>
+    <a href="/index">Hủy bỏ</a>
+</body>
+</html>

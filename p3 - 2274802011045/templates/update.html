@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='update.css') }}">
+    <title>Update Book</title>
+</head>
+<body>
+    <h2>Cập Nhật Sách</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="notification-container">
+            <ul>
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+
+    <form method="post">
+        <label for="ten_sach">Tên Sách:</label>
+        <input type="text" name="ten_sach" value="{{ book[1] }}" required><br>
+
+        <label for="tac_gia">Tác Giả:</label>
+        <input type="text" name="tac_gia" value="{{ book[2] }}" required><br>
+
+        <label for="nxb">NXB:</label>
+        <input type="number" name="nxb" value="{{ book[3] }}" required><br>
+
+        <label for="the_loai">Thể Loại:</label>
+        <input type="text" name="the_loai" value="{{ book[4] }}" required><br>
+
+        <button type="submit">Cập Nhật</button>
+    </form>
+     <!-- Nút hủy và quay về trang chính -->
+
+     <h2>Tất Cả Sách</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tên Sách</th>
+            <th>Tác Giả</th>
+            <th>NXB</th>
+            <th>Thể Loại</th>
+            <th>Hành Động</th>
+        </tr>
+        {% for book in all_books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+            <td>{{ book[4] }}</td>
+            <td>
+                <a href="{{ url_for('update', id=book[0]) }}" class="action-link">Cập nhật</a> |
+                <a href="{{ url_for('delete', id=book[0]) }}" class="action-link">Xóa</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a id="cancle" href="/index">Quay về trang chủ</a>
+</body>
+</html>

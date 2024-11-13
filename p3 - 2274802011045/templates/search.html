@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm sách</title>
+</head>
+<body>
+    <h1>Tìm kiếm sách</h1>
+    <form method="POST">
+        <input type="text" name="search_term" placeholder="Nhập tên sách để tìm kiếm" required>
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    <a href="{{ url_for('index') }}">Quay lại trang chủ</a>
+
+    {% if books is not none %}
+    <h2>Kết quả tìm kiếm cho: "{{ search_term }}"</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>NXB</th>
+            <th>Thể loại</th>
+            <th>Hành động</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+            <td>{{ book[4] }}</td>
+            <td>
+                <a href="{{ url_for('update_book', id=book[0]) }}">Cập nhật</a>
+                <a href="{{ url_for('delete_book', id=book[0]) }}">Xóa</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Không tìm thấy sách nào.</p>
+    {% endif %}
+</body>
+</html>
