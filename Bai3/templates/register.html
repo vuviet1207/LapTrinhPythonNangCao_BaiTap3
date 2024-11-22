@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h2>Chào mừng bạn đến với Website Thư Viện</h2>
+        </nav>
+    </header>
+    <h1>Đăng ký tài khoản</h1>
+
+    <!-- Hiển thị thông báo từ flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="notification-container">
+            <ul>
+                {% for category, message in messages %}
+                    <p id="body" class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+    <div class="register-container">
+        <!-- Form đăng ký -->
+        <form method="post">
+            <p id="body">Tên đăng nhập: <input type="text" name="username" placeholder="Username" required></p>
+            <p id="body">Mật khẩu: </p>
+            <div style="position: relative; display: inline-block; width: 100%;">
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Nhập mật khẩu mới nếu muốn thay đổi"
+                    style="width: calc(100% - 40px);" 
+                    onfocus="hidePasswordIcon()"  
+                >
+                <button 
+                    type="button" 
+                    id="togglePassword" 
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;"
+                    title="Hiển thị mật khẩu"
+                    onclick="togglePasswordVisibility()"  
+                >
+                    👁️
+                </button>
+            </div>
+            <button type="submit">Đăng ký</button>
+        </form>
+
+    </div>
+    <p id="login">Đã có tài khoản? <a id="login" href="{{ url_for('login') }}">Đăng nhập tại đây</a></p>
+    <footer>
+        <div>
+            <h4>Giờ mở cửa</h4>
+            <p>Thứ 2 - Thứ 6: 8:00 - 20:00</p>
+            <p>Thứ 7 - Chủ Nhật: 10:00 - 18:00</p>
+        </div>
+        <div>
+            <h4>Thông tin liên hệ</h4>
+            <p>Địa chỉ: 123 Đường Sách, TP. Hồ Chí Minh</p>
+            <p>Điện thoại: 0901234567 (AnhVietVuDepTraiCoolNgauSieuCapSo1TheGioi)</p>
+        </div>
+        <div>
+            <h4>Về chúng tôi</h4>
+            <p>&copy; 2024 Công ty Sách. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    <script src="static/script.js"></script>
+</body>
+</html>

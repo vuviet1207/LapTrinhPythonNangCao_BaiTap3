@@ -1,0 +1,98 @@
+<!-- edit_profile.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa thông tin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit_profile.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            {% if session.get('logged_in') %}
+            <span id="hello">Xin chào, {{ session['username'] }}</span> |
+            <a id="action" href="/index">Trang chủ</a>
+            <a href="/edit_profile">Chỉnh sửa thông tin</a> |
+            <a href="/disconnect">Đăng xuất</a>
+        {% else %}
+            <a href="/login">Đăng nhập</a>
+            <a href="/register">Đăng ký</a>
+        {% endif %}
+        </nav>
+    </header>
+    <h1>Chỉnh sửa thông tin</h1>
+
+        <!-- Hiển thị thông báo lỗi nếu có -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="notification-container">
+                <ul>
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div class="edit-profile-container">
+        <h2>Cập nhật thông tin cá nhân</h2>
+    
+        <form method="POST" class="edit-profile-form">
+            <!-- Hiển thị tên đăng nhập cũ và cho phép thay đổi -->
+            <label for="username">Tên đăng nhập:</label>
+            <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                value="{{ user['username'] }}" 
+                required>
+            
+            <!-- Hiển thị mật khẩu cũ và cho phép thay đổi nếu cần -->
+            <label for="password">Mật khẩu mới (tùy chọn):</label>
+            <div style="position: relative; display: inline-block; width: 100%;">
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Nhập mật khẩu mới nếu muốn thay đổi"
+                    style="width: calc(100% - 40px);" 
+                    onfocus="hidePasswordIcon()"  
+                >
+                <button 
+                    type="button" 
+                    id="togglePassword" 
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;"
+                    title="Hiển thị mật khẩu"
+                    onclick="togglePasswordVisibility()"  
+                >
+                    👁️
+                </button>
+            </div>
+
+<button type="submit" class="btn-submit">Cập nhật thông tin</button>
+
+        </form>
+    
+        <a href="{{ url_for('index') }}" class="btn-back">Trở về trang chủ</a>
+    </div>
+    <footer>
+        <div>
+            <h4>Giờ mở cửa</h4>
+            <p>Thứ 2 - Thứ 6: 8:00 - 20:00</p>
+            <p>Thứ 7 - Chủ Nhật: 10:00 - 18:00</p>
+        </div>
+        <div>
+            <h4>Thông tin liên hệ</h4>
+            <p>Địa chỉ: 123 Đường Sách, TP. Hồ Chí Minh</p>
+            <p>Điện thoại: 0901234567 (AnhVietVuDepTraiCoolNgauSieuCapSo1TheGioi)</p>
+        </div>
+        <div>
+            <h4>Về chúng tôi</h4>
+            <p>&copy; 2024 Công ty Sách. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    <script src="static/script.js">
+    </script>
+</body>
+</html>

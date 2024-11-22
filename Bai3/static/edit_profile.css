@@ -1,0 +1,219 @@
+/* General Body Styles */
+body {
+    background-image: url(https://i.redd.it/s7aww22zw9o01.jpg);
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Thay đổi layout thành cột */
+    justify-content: flex-start; /* Canh từ trên xuống */
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi chiều rộng */
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background: rgba(0, 0, 0, 0.3); /* Overlay with semi-transparent background */
+    z-index: -1;
+}
+
+/* Heading Style */
+h1 {
+    margin-top: 100px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8)
+}
+
+/* Edit Profile Container */
+.edit-profile-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Giới hạn chiều rộng của form */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Input Fields Styles */
+ input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+input[type="text"] {
+    padding: 10px;
+    width: 330px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+#togglePassword {
+    font-size: 18px;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-left: 400px;
+    padding-bottom: 25px;
+}
+/* Button Styles */
+button {
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(241, 232, 215); /* Màu nền button giống như màu xanh của header */
+    border: none;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu nền khi hover */
+}
+
+button:hover {
+    background-color: wheat; /* Màu nền khi hover */
+}
+
+/* Link Style */
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+a:hover {
+    color: #0056b3; /* Màu chữ khi hover */
+    text-decoration: underline;
+}
+
+/* Notification Styles */
+.notification-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90%;
+    background-color: #f0f0f0;
+    z-index: 1000;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    animation: slideDown 0.5s forwards, fadeOut 2.5s forwards; /* Hiệu ứng trượt xuống và mờ dần */
+    animation-delay: 0s, 2s;
+}
+
+/* Notification Message Styles */
+.success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100%);
+    }
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px; /* Tăng padding trên và dưới để làm footer dài hơn */
+    display: grid;  /* Sử dụng grid để chia cột */
+    grid-template-columns: repeat(3, 1fr);  /* Tạo 3 cột đều nhau */
+    gap: 20px;  /* Khoảng cách giữa các cột */ /* Đảm bảo footer luôn cố định ở dưới */
+    bottom: 0;  /* Đặt footer nằm ở dưới cùng */
+    width: 100%;  /* Chiếm toàn bộ chiều rộng */
+    z-index: 10;  /* Đảm bảo footer nằm trên các phần tử khác */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 180px;
+    position: fixed;
+    font-size: 20px;
+}
+
+footer h4 {
+    margin-top: 0;  /* Loại bỏ margin-top cho h4 */
+}
+
+footer p {
+    margin: 5px 0;  /* Đảm bảo khoảng cách đều giữa các đoạn văn */
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px; /* Tăng padding-top và padding-bottom để làm header dài hơn */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%; /* Đảm bảo header chiếm chiều rộng toàn bộ */
+    height: auto; /* Cho phép chiều cao header thay đổi tự động */
+    z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header nav #hello {  /* Thêm khoảng cách giữa phần "Xin chào" và phần "action" */
+    margin-left: 30px;
+    font-size: 20px;
+}
+header nav #action {
+    margin-right: 1600px;  /* Thêm khoảng cách giữa phần "Xin chào" và phần "action" */
+    margin-left: 10px;
+}
+nav {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f2f2f2; /* Change hover color */
+    text-decoration: underline;
+}
+#password {
+    position: relative;  /* Đảm bảo input không bị che khuất */
+    z-index: 10;  /* Đảm bảo input nằm trên các phần tử khác */
+}

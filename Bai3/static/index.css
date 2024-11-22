@@ -1,0 +1,350 @@
+/* General Body Styles */
+body {
+    background-image: url(https://i.redd.it/s7aww22zw9o01.jpg);
+    background-size: fill;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Loại bỏ thanh cuộn */
+    padding-bottom: 80px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background: rgba(0, 0, 0, 0.3); /* Overlay with semi-transparent background */
+    z-index: -1;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px; /* Tăng padding-top và padding-bottom để làm header dài hơn */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%; /* Đảm bảo header chiếm chiều rộng toàn bộ */
+    height: auto; /* Cho phép chiều cao header thay đổi tự động */
+    z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header nav #hello {  /* Thêm khoảng cách giữa phần "Xin chào" và phần "action" */
+    margin-left: 130px;
+    font-size: 20px;
+}
+header nav #action {
+    margin-right: 1500px;  /* Thêm khoảng cách giữa phần "Xin chào" và phần "action" */
+    margin-left: 10px;
+}
+nav {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f2f2f2; /* Change hover color */
+    text-decoration: underline;
+}
+h1 {
+    color: white;  /* Màu chữ trắng */
+    font-size: 50px;  /* Kích thước chữ to hơn */
+    margin: 0;  /* Xóa bỏ margin mặc định */
+    text-align: center;
+    margin-top: 30px;  /* Căn giữa chữ */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+/* Form Styles */
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%; /* Decrease width to make form more balanced */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: rgb(241, 232, 215);
+    border: none;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: wheat;
+}
+
+/* Link Styles */
+a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #435260;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Table Styles */
+table {
+    background-color: rgba(255, 255, 255, 0.941); /* Slightly transparent background for table */
+    width: 80%; /* Adjust table width */
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table */
+    border-radius: 15px; /* Bo góc cho toàn bộ bảng */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    overflow: hidden; /* Đảm bảo các góc không bị cắt */
+    margin-bottom: 40px;
+}
+
+/* Bo góc cho các ô tiêu đề */
+th {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border: none;
+    background-color: rgb(241, 232, 215);
+    color: black;; /* Bo góc trên cho các th */
+}
+
+/* Bo góc cho các ô dữ liệu */
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Bo góc dưới của các ô cuối cùng trong bảng */
+tr:last-child td:first-child {
+    border-radius: 0 0 0 15px; /* Bo góc dưới bên trái */
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 15px 0; /* Bo góc dưới bên phải */
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+/* Add some spacing between form elements and table */
+section {
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* Đặt kiểu cho nút Reload */
+#reload-link {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px; /* Thêm khoảng đệm */
+    border: 2px solid #fff; /* Khung trắng */
+    border-radius: 5px; /* Bo góc */
+    background-color: rgb(241, 232, 215); /* Nền trong suốt */
+    display: inline-block;
+    margin: 5px; /* Khoảng cách giữa các nút */
+}
+
+#reload-link:hover {
+    text-decoration: underline;
+    background-color: wheat; /* Màu nền khi hover */
+    color: black; /* Màu chữ khi hover */
+}
+
+.button-container {
+    display: flex;              /* Sử dụng Flexbox */
+    justify-content: flex-start; /* Căn chỉnh các nút về bên trái */
+    gap: 10px;                  /* Khoảng cách giữa các nút */
+    margin-bottom: 20px;        /* Khoảng cách dưới các nút */
+}
+
+/* Đặt kiểu cho nút Add Book */
+#add-book-link {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px; /* Thêm khoảng đệm */
+    border: 2px solid #fff; /* Khung trắng */
+    border-radius: 5px; /* Bo góc */
+    background-color: white; /* Nền trong suốt */
+    display: inline-block;
+    margin: 5px; /* Khoảng cách giữa các nút */
+}
+
+#add-book-link:hover {
+    text-decoration: underline;
+    background-color: wheat; /* Màu nền khi hover */
+    color: black; /* Màu chữ khi hover */
+}
+/* Notification Container Style */
+.notification-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    z-index: 1000;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: translateY(-100%);
+    animation: slideDown 0.5s forwards, fadeOut 2.5s forwards; /* Hiệu ứng trượt xuống và mờ dần */
+    animation-delay: 0s, 2s; /* Trượt xuống ngay lập tức, sau đó mờ dần sau 2 giây */
+}
+
+/* Notification Message Styles */
+.success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+#dashboard-btn {
+    margin-top: 5px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: rgb(241, 232, 215);
+    color: black;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Style for the sidebar */
+#sidebar {
+    margin-top: 80px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 999;
+}
+
+/* Sidebar content */
+#sidebar a {
+    margin-top: 80px;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.2s;
+}
+
+#sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Close button inside the sidebar */
+#close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px; /* Tăng padding trên và dưới để làm footer dài hơn */
+    display: grid;  /* Sử dụng grid để chia cột */
+    grid-template-columns: repeat(3, 1fr);  /* Tạo 3 cột đều nhau */
+    gap: 20px;  /* Khoảng cách giữa các cột */  /* Đảm bảo footer luôn cố định ở dưới */
+    bottom: 0;  /* Đặt footer nằm ở dưới cùng */
+    width: 100%;  /* Chiếm toàn bộ chiều rộng */
+    z-index: 10;  /* Đảm bảo footer nằm trên các phần tử khác */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 180px;
+}
+
+footer h4 {
+    margin-top: 0;  /* Loại bỏ margin-top cho h4 */
+}
+
+footer p {
+    margin: 5px 0;  /* Đảm bảo khoảng cách đều giữa các đoạn văn */
+}
+main {
+    flex: 1; /* Lấp đầy không gian giữa header và footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc nếu cần */
+    width: 100%;
+}
